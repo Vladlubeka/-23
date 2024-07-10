@@ -1,0 +1,59 @@
+﻿namespace WinFormsApp6
+{
+
+    partial class Form1
+    {
+        private System.ComponentModel.IContainer components = null;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Timer timer1;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+
+            // Form1
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(534, 511);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Name = "Form1";
+            this.Text = "Memory Game";
+
+            // tableLayoutPanel1
+            this.tableLayoutPanel1.ColumnCount = 4;
+            for (int i = 0; i < 4; i++)
+            {
+                this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+                this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            }
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+
+            for (int i = 0; i < 16; i++)
+            {
+                var button = new System.Windows.Forms.Button();
+                button.Dock = System.Windows.Forms.DockStyle.Fill;
+                button.Font = new System.Drawing.Font("Webdings", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+                button.Click += new System.EventHandler(this.button_Click);
+                this.tableLayoutPanel1.Controls.Add(button);
+            }
+
+            // timer1
+            this.timer1.Interval = 750;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+
+            this.ResumeLayout(false);
+        }
+    }
+}
